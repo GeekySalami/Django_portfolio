@@ -6,7 +6,7 @@ from .models import Profile
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
-    profile_image = forms.ImageField(upload_to = 'profile_pics')
+    profile_image = forms.ImageField(default = 'default.jpg', upload_to='profile_pics')
     class Meta():
         model = User
         fields = ['first_name','last_name','username', 'email', 'password1', 'password2', 'profile_image']
