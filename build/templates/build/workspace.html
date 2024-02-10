@@ -1,0 +1,54 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<style>.Editor-container{
+    height:400px;
+    width : 600px;
+    margin: 20 px auto;
+    position: relative;
+}
+#editor {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+  }
+button{
+    float:right;
+    margin-top: 20px;
+    font-family: monospace;
+    font-style: bold;
+}
+</style>
+<div>
+<table>
+        <th>Docs</th>
+        <th>Code</th>
+        <tr>
+            <td> Python docs </td>
+            <td class="Editor-container">
+                    <form method="post">
+                        <div id = "editor" action = '/runcode/'></div>
+                        <button type="submit" class"btn link">Run</button>
+                    </form>
+                    
+            </td>
+        </tr>
+    </table>
+</div>
+    <button type="submit">Run</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.js"></script>
+    <script >let editor = document.getElementById("editor");
+    
+        ace.edit(editor, {
+                theme : "ace/theme/cobalt",
+                mode: "ace/mode/python",
+                enableAutoIndent: true,
+                copyWithEmptySelection: true
+
+            });</script>
+{% endblock content %}
